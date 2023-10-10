@@ -16,7 +16,6 @@ const registerUser = async (req, res) => {
 
     const user = await User.create({
       ...req.body,
-      role_id: 1,
     });
 
     const token = jwt.sign(
@@ -33,6 +32,7 @@ const registerUser = async (req, res) => {
   } catch (err) {
     return res.status(500).json({
       message: 'An error occured',
+      err: err.message,
     });
   }
 };
