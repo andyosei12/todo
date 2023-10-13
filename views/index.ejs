@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Todo</title>
+  </head>
+  <body>
+    <header>
+      <h3 class="logo">Express Todo</h3>
+      <nav>
+        <ul class="main-nav">
+          <!-- <li><a href="#">Andrew Owusu</a></li>
+          <li><a href="#" class="signup-btn">Logout</a></li> -->
+          <li><a href="/user/login">Login</a></li>
+          <li><a href="/user/signup" class="signup-btn">Create account</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Add task -->
+      <div>
+        <form action="/add" method="POST" class="form-container">
+          <input type="text" name="task" placeholder="Add task" />
+          <button type="submit" class="submit-btn">Add</button>
+        </form>
+      </div>
+
+      <section class="task-section">
+        <aside>
+          <nav>
+            <ul class="task-nav">
+              <li><a href="#">All</a></li>
+              <li><a href="#">Pending</a></li>
+              <li><a href="#">Completed</a></li>
+            </ul>
+          </nav>
+        </aside>
+        <div class="task-container">
+          <div class="task">
+            <!-- task -->
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+              voluptas ex labore.
+            </p>
+            <h3>Pending</h3>
+            <!-- Actions -->
+            <div class="action-btns">
+              <form action="/edit" method="POST">
+                <button class="complete-btn">✔</button>
+              </form>
+              <form action="/edit" method="POST">
+                <button class="delete-btn">⛔</button>
+              </form>
+            </div>
+          </div>
+          <div class="task">
+            <!-- task -->
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+              voluptas ex labore.
+            </p>
+            <h3>Pending</h3>
+            <!-- Actions -->
+            <div class="action-btns">
+              <form action="/edit" method="POST">
+                <button class="complete-btn">✔</button>
+              </form>
+              <form action="/edit" method="POST">
+                <button class="delete-btn">⛔</button>
+              </form>
+            </div>
+          </div>
+          <div class="task">
+            <!-- task -->
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste,
+              assumenda? Fugit nostrum cum, molestias sit delectus nam velit
+              enim, error, repellendus reiciendis minima. Aliquam labore
+              obcaecati eaque facilis veritatis iste.
+            </p>
+            <h3>Pending</h3>
+            <!-- Actions -->
+            <div class="action-btns">
+              <form action="/edit" method="POST">
+                <button class="complete-btn">✔</button>
+              </form>
+              <form action="/edit" method="POST">
+                <button class="delete-btn">⛔</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

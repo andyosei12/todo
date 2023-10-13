@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #000000;
+  color: #fff;
+  background: linear-gradient(
+    109.6deg,
+    rgb(36, 45, 57) 11.2%,
+    rgb(16, 37, 60) 51.2%,
+    rgb(0, 0, 0) 98.6%
+  );
+  font-family: 'Nunito', sans-serif;
+  padding: 1.5rem 15rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.signup-btn {
+  background: linear-gradient(
+    109.6deg,
+    rgb(43, 1, 91) 13.4%,
+    rgb(122, 2, 54) 100.2%
+  );
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+}
+
+.form-container {
+  width: 100%;
+  background-color: #ccc;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(87, 108, 117) 0%,
+    rgb(37, 50, 55) 100.2%
+  );
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 3rem;
+}
+
+.form-container input {
+  width: 70%;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.form-container input:focus {
+  outline: none;
+}
+
+.form-container input::placeholder {
+  color: #fff;
+}
+
+.submit-btn,
+.auth-btn {
+  background: linear-gradient(
+    109.6deg,
+    rgb(43, 1, 91) 13.4%,
+    rgb(122, 2, 54) 100.2%
+  );
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.task-section {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+aside {
+  width: 10rem;
+}
+
+.task-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.task-nav li {
+  text-align: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 3rem;
+}
+
+.task-nav li:first-of-type {
+  background: linear-gradient(
+    109.6deg,
+    rgb(43, 1, 91) 13.4%,
+    rgb(122, 2, 54) 100.2%
+  );
+}
+
+.task-nav li:nth-child(2) {
+  background-color: #007ea7;
+}
+
+.task-nav li:nth-child(3) {
+  background-color: #0ac254;
+}
+
+.task-container {
+  width: 100%;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  height: max-content;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(87, 108, 117) 0%,
+    rgb(37, 50, 55) 100.2%
+  );
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+
+.task p {
+  width: 68%;
+}
+
+.task h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  background-color: #007ea7;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3rem;
+}
+
+.action-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.complete-btn {
+  background-color: #ccc;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  color: #0ac254;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.delete-btn {
+  background-color: #ccc;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+}
+
+.auth-form {
+  width: 70%;
+  background-color: #ccc;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(87, 108, 117) 0%,
+    rgb(37, 50, 55) 100.2%
+  );
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.auth-form h1 {
+  margin-bottom: 1.5rem;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.auth-form input:focus {
+  outline: none;
+}
+
+.auth-btn {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
