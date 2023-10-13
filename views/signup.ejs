@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Create an account</title>
+  </head>
+  <body>
+    <header>
+      <h3 class="logo"><a href="/">Express Todo</a></h3>
+    </header>
+    <main>
+      <form action="/user/signup" method="POST" class="auth-form">
+        <h1>Create an account</h1>
+        <input type="text" name="first_name" placeholder="First Name" />
+        <input type="text" name="last_name" placeholder="Last Name" />
+        <input type="text" name="user_name" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <button type="submit" class="auth-btn">Sign up</button>
+      </form>
+    </main>
+  </body>
+</html>
