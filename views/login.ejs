@@ -19,9 +19,14 @@
     <main>
       <form action="/user/login" method="POST" class="auth-form">
         <h1>Login</h1>
-        <input type="text" name="name" placeholder="Username" />
+        <p class="error"><%= error %></p>
+        <input type="text" name="user_name" placeholder="Username" />
         <input type="password" name="password" placeholder="Password" />
         <button type="submit" class="auth-btn">Login</button>
+        <p style="margin-top: 1rem">
+          Don't have an account?
+          <a href="/user/signup">Sign up</a>
+        </p>
       </form>
     </main>
   </body>

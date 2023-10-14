@@ -14,6 +14,7 @@ const port = process.env.PORT || 5000;
 
 db.connect();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
