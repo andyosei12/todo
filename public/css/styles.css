@@ -234,3 +234,14 @@ aside {
   margin-top: 2rem;
   font-size: 1.3rem;
 }
+
+.error {
+  color: rgb(122, 2, 54);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-tasks {
+  align-self: center;
+  margin: 0 auto;
+}

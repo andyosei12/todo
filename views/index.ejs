@@ -14,21 +14,23 @@
   </head>
   <body>
     <header>
-      <h3 class="logo">Express Todo</h3>
+      <h3 class="logo"><a href="/">Express Todo</a></h3>
       <nav>
         <ul class="main-nav">
-          <!-- <li><a href="#">Andrew Owusu</a></li>
-          <li><a href="#" class="signup-btn">Logout</a></li> -->
-          <li><a href="/user/login">Login</a></li>
-          <li><a href="/user/signup" class="signup-btn">Create account</a></li>
+          <li><h3><%= user.user_name %></h3></li>
+          <li><a href="/logout" class="signup-btn">Logout</a></li>
+          <!-- <li><a href="/user/login">Login</a></li>
+          <li><a href="/user/signup" class="signup-btn">Create account</a></li> -->
         </ul>
       </nav>
     </header>
     <main>
       <!-- Add task -->
       <div>
-        <form action="/add" method="POST" class="form-container">
-          <input type="text" name="task" placeholder="Add task" />
+        <p><%= error %></p>
+        <form action="/task" method="POST" class="form-container">
+          <input type="text" name="task" placeholder="Add task" required />
+          <input type="text" name="userId" hidden value="<%= user.id %>" />
           <button type="submit" class="submit-btn">Add</button>
         </form>
       </div>
@@ -37,67 +39,36 @@
         <aside>
           <nav>
             <ul class="task-nav">
-              <li><a href="#">All</a></li>
-              <li><a href="#">Pending</a></li>
-              <li><a href="#">Completed</a></li>
+              <li><a href="/tasks">All</a></li>
+              <li><a href="/tasks?status=pending">Pending</a></li>
+              <li><a href="/tasks?status=completed">Completed</a></li>
             </ul>
           </nav>
         </aside>
+        <% if(tasks.length > 0) { %>
         <div class="task-container">
+          <% for (let task of tasks) { %>
           <div class="task">
             <!-- task -->
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-              voluptas ex labore.
-            </p>
-            <h3>Pending</h3>
+            <p><%= task.name %></p>
+            <h3><%= task.status %></h3>
             <!-- Actions -->
             <div class="action-btns">
-              <form action="/edit" method="POST">
+              <% if(task.status === 'pending') { %>
+              <form action="/task/<%= task._id %>" method="POST">
                 <button class="complete-btn">✔</button>
               </form>
-              <form action="/edit" method="POST">
+              <% } %>
+              <form action="/task/<%= task._id %>/remove" method="POST">
                 <button class="delete-btn">⛔</button>
               </form>
             </div>
           </div>
-          <div class="task">
-            <!-- task -->
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-              voluptas ex labore.
-            </p>
-            <h3>Pending</h3>
-            <!-- Actions -->
-            <div class="action-btns">
-              <form action="/edit" method="POST">
-                <button class="complete-btn">✔</button>
-              </form>
-              <form action="/edit" method="POST">
-                <button class="delete-btn">⛔</button>
-              </form>
-            </div>
-          </div>
-          <div class="task">
-            <!-- task -->
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste,
-              assumenda? Fugit nostrum cum, molestias sit delectus nam velit
-              enim, error, repellendus reiciendis minima. Aliquam labore
-              obcaecati eaque facilis veritatis iste.
-            </p>
-            <h3>Pending</h3>
-            <!-- Actions -->
-            <div class="action-btns">
-              <form action="/edit" method="POST">
-                <button class="complete-btn">✔</button>
-              </form>
-              <form action="/edit" method="POST">
-                <button class="delete-btn">⛔</button>
-              </form>
-            </div>
-          </div>
+          <% } %>
         </div>
+        <% } else { %>
+        <h1 class="empty-tasks">No tasks found</h1>
+        <% } %>
       </section>
     </main>
   </body>
