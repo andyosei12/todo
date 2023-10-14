@@ -4,7 +4,7 @@ const {
   getTasks,
   updateTask,
   deleteTask,
-} = require('../controllers/task');
+} = require('../tasks/tasks.controller');
 const validateTaskCreation = require('../middleware/task/validateTaskCreation');
 
 const router = express.Router();

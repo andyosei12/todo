@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const User = require('../models/user.model');
+const logger = require('../logger');
 
 dotenv.config();
 
 const registerUser = async ({ first_name, last_name, user_name, password }) => {
   //   Check if email exists
+  logger.info('(User) => register process started');
   try {
     const existingUser = await User.findOne({ user_name });
     if (existingUser) {
@@ -28,6 +30,7 @@ const registerUser = async ({ first_name, last_name, user_name, password }) => {
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
+    logger.info('(User) => register process successful');
     return {
       code: 201,
       data: {
@@ -37,6 +40,7 @@ const registerUser = async ({ first_name, last_name, user_name, password }) => {
       message: 'User added successfully',
     };
   } catch (err) {
+    logger.error(err);
     return {
       code: 500,
       message: 'An error occured',
@@ -47,10 +51,12 @@ const registerUser = async ({ first_name, last_name, user_name, password }) => {
 };
 
 const loginUser = async ({ user_name, password }) => {
+  logger.info('(Login) => login process started');
   //   Check if user exists
   try {
     const user = await User.findOne({ user_name: user_name.toLowerCase() });
     if (!user) {
+      logger.error('(Login) => user credentials not correct');
       return {
         error: true,
         message: 'User does not exist. Try signing up',
@@ -71,6 +77,7 @@ const loginUser = async ({ user_name, password }) => {
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
+    logger.info('(Login) => login process successful');
     return {
       code: 200,
       data: {
@@ -80,7 +87,7 @@ const loginUser = async ({ user_name, password }) => {
       message: 'Login successfully',
     };
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     return {
       code: 500,
       error: true,

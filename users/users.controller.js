@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const logger = require('../logger');
 const User = require('../models/user.model');
 
 dotenv.config();
 
 const registerUser = async (req, res) => {
   //   Check if email exists
+  logger.info('(User) => register process started');
   try {
     const existingUser = await User.findOne({ user_name: req.body.user_name });
     if (existingUser) {
@@ -23,13 +25,14 @@ const registerUser = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
-
+    logger.info('(User) => register process successful');
     return res.status(201).json({
       token,
       user,
       message: 'User added successfully',
     });
   } catch (err) {
+    logger.error(err);
     return res.status(500).json({
       message: 'An error occured',
       err: err.message,
@@ -40,7 +43,7 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   const emailInput = req.body.email;
   const passwordInput = req.body.password;
-
+  logger.info('(User) => login process started');
   try {
     const user = await User.findOne({ email: emailInput });
     if (!user) {
@@ -68,6 +71,7 @@ const loginUser = async (req, res) => {
       user,
     });
   } catch (error) {
+    logger.error(error);
     return res.status(500).json({
       message: 'An error occured',
     });
