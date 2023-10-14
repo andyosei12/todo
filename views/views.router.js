@@ -9,13 +9,16 @@ const router = express.Router();
 router.use(cookieParser());
 
 router.get('/user/login', (req, res) => {
-  res.render('login', { error: null });
+  res.render('login', { error: null, pageTitle: 'Todo | Login' });
 });
 
 router.post('/user/login', async (req, res) => {
   const response = await userServices.loginUser(req.body);
   if (response.error) {
-    return res.render('login', { error: response.message });
+    return res.render('login', {
+      error: response.message,
+      pageTitle: 'Todo | Login',
+    });
   } else {
     res.cookie('jwt', response.data.token);
     res.redirect('/');
@@ -23,13 +26,16 @@ router.post('/user/login', async (req, res) => {
 });
 
 router.get('/user/signup', (req, res) => {
-  res.render('signup', { error: null });
+  res.render('signup', { error: null, pageTitle: 'Todo | Create an account' });
 });
 
 router.post('/user/signup', async (req, res) => {
   const response = await userServices.registerUser(req.body);
   if (response.error) {
-    return res.render('signup', { error: response.message });
+    return res.render('signup', {
+      error: response.message,
+      pageTitle: 'Todo | Create an account',
+    });
   } else {
     res.cookie('jwt', response.data.token);
     res.redirect('/');
