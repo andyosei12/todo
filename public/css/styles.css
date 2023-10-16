@@ -157,6 +157,7 @@ ul {
   .task-submit {
     width: max-content;
     align-self: center;
+    font-size: 1.2rem;
   }
 }
 
@@ -239,6 +240,12 @@ aside {
 
 .task p {
   width: 68%;
+}
+
+@media screen and (max-width: 35.44em) {
+  .task p {
+    width: 100%;
+  }
 }
 
 .task h3 {
