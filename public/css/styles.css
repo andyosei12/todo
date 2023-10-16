@@ -18,11 +18,29 @@ body {
   padding: 1.5rem 15rem;
 }
 
+@media screen and (max-width: 62.5em) {
+  body {
+    padding: 1.5rem 3rem;
+  }
+}
+@media screen and (max-width: 41.25em) {
+  body {
+    padding: 1.5rem;
+  }
+}
+
 .logo {
   font-size: 1.8rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
+}
+
+@media screen and (max-width: 34.19em) {
+  .logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+  }
 }
 
 a {
@@ -43,6 +61,13 @@ header {
   margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 31.25em) {
+  header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
 ul {
   list-style: none;
 }
@@ -50,6 +75,12 @@ ul {
 .main-nav {
   display: flex;
   gap: 1.5rem;
+}
+
+@media screen and (max-width: 25.69em) {
+  .main-nav {
+    gap: 1rem;
+  }
 }
 
 .signup-btn {
@@ -76,6 +107,13 @@ ul {
   gap: 3rem;
 }
 
+@media screen and (max-width: 38.19em) {
+  .form-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
 .form-container input {
   width: 70%;
   background-color: transparent;
@@ -86,6 +124,12 @@ ul {
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   font-weight: 600;
+}
+
+@media screen and (max-width: 38.19em) {
+  .form-container input {
+    width: 100%;
+  }
 }
 
 .form-container input:focus {
@@ -109,10 +153,23 @@ ul {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+@media screen and (max-width: 38.19em) {
+  .task-submit {
+    width: max-content;
+    align-self: center;
+  }
+}
+
 .task-section {
   display: flex;
   gap: 3rem;
   margin-top: 3rem;
+}
+
+@media screen and (max-width: 48.13em) {
+  .task-section {
+    flex-direction: column;
+  }
 }
 
 aside {
@@ -123,6 +180,12 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+@media screen and (max-width: 48.13em) {
+  .task-nav {
+    flex-direction: row;
+  }
 }
 
 .task-nav li {
@@ -164,6 +227,14 @@ aside {
   );
   padding: 1rem;
   border-radius: 0.8rem;
+}
+
+@media screen and (max-width: 35.44em) {
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }
 
 .task p {
@@ -213,8 +284,20 @@ aside {
   margin-top: 3rem;
 }
 
+@media screen and (max-width: 40.31em) {
+  .auth-form {
+    width: 100%;
+  }
+}
+
 .auth-form h1 {
   margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 40.31em) {
+  .auth-form h1 {
+    font-size: 1.5rem;
+  }
 }
 
 .auth-form input {
@@ -233,6 +316,12 @@ aside {
 .auth-btn {
   margin-top: 2rem;
   font-size: 1.3rem;
+}
+
+@media screen and (max-width: 40.31em) {
+  .auth-btn {
+    font-size: 1.15rem;
+  }
 }
 
 .error {
