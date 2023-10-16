@@ -67,6 +67,7 @@ router.get('/', async (req, res) => {
     user: res.locals.user,
     error: null,
     tasks: response.tasks,
+    pageTitle: 'Express Todo',
   });
 });
 
@@ -76,7 +77,7 @@ router.get('/logout', (req, res) => {
 });
 
 // Add a task
-router.post('/task', async (req, res) => {
+router.post('/tasks', async (req, res) => {
   const response = await taskServices.addTask(req.body);
   if (response.error) {
     return res.redirect('/', { error: response.message });
@@ -91,12 +92,16 @@ router.get('/tasks', async (req, res) => {
   const { status } = req.query;
   const response = await taskServices.getTasks(userId, status);
   if (response.error) {
-    return res.redirect('/', { error: response.message });
+    return res.redirect('/', {
+      error: response.message,
+      pageTitle: 'Express Todo',
+    });
   } else {
     res.render('index', {
       user: res.locals.user,
       error: null,
       tasks: response.tasks,
+      pageTitle: 'Express Todo',
     });
   }
 });

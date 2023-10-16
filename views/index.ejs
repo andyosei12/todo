@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <title>Todo</title>
+    <%- include('./partials/head') %>
   </head>
   <body>
     <header>
@@ -28,10 +19,10 @@
       <!-- Add task -->
       <div>
         <p><%= error %></p>
-        <form action="/task" method="POST" class="form-container">
+        <form action="/tasks" method="POST" class="form-container">
           <input type="text" name="task" placeholder="Add task" required />
           <input type="text" name="userId" hidden value="<%= user.id %>" />
-          <button type="submit" class="submit-btn">Add</button>
+          <button type="submit" class="submit-btn task-submit">Add</button>
         </form>
       </div>
 
