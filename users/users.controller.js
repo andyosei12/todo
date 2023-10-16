@@ -21,7 +21,7 @@ const registerUser = async (req, res) => {
     });
 
     const token = jwt.sign(
-      { email: user.email, id: user._id },
+      { email: user.user_name, id: user._id },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
@@ -41,11 +41,11 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-  const emailInput = req.body.email;
+  const user_name = req.body.user_name;
   const passwordInput = req.body.password;
   logger.info('(User) => login process started');
   try {
-    const user = await User.findOne({ email: emailInput });
+    const user = await User.findOne({ user_name });
     if (!user) {
       return res.status(404).json({
         error: true,
@@ -56,11 +56,11 @@ const loginUser = async (req, res) => {
     const validPassword = await user.isValidPassword(passwordInput);
     if (!validPassword) {
       return res.status(401).json({
-        message: 'Email or password is not correct',
+        message: 'Username or password is not correct',
       });
     }
     const token = jwt.sign(
-      { email: user.email, id: user.id },
+      { email: user.user_name, id: user.id },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
